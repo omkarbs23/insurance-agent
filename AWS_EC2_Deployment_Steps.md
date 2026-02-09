@@ -48,21 +48,31 @@ git clone https://github.com/omkarbs23/insurance-agent.git
 cd insurance-agent
 ```
 
-3. Build your Docker image:
+3. Add your credentials in the .env file
+```bash
+nano .env
+
+OPENAI_API_KEY="gl-xxxxxxxxxx"      # Modify this line and add your OpenAI API Key
+OPENAI_BASE_URL="https....../v1"    #  Modify this line and add your OpenAI Base URL
+
+CTRL + X
+SHIFT + Y
+Enter
+```
+
+4. Build your Docker image:
 ```bash
 sudo docker build -t insurance-agent-image:latest .
 ```
 
-4. Check your Docker image:
+5. Check your Docker image:
 ```bash
 sudo docker images insurance-agent-image:latest
 ```
  
-
-5. Run your Docker image:
+6. Run your Docker image:
 ```bash
 sudo docker run -d -p 80:8501 insurance-agent-image:latest
 ```
 
-
-6. Visit your Private IP in any browser
+7. Visit your Private IP in any browser
