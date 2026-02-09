@@ -1,10 +1,11 @@
-"""ChromaDB vector store with built-in sentence-transformers embeddings"""
+"""ChromaDB vector store with OpenAI embeddings"""
 import chromadb
 from chromadb.config import Settings
 from chromadb.utils import embedding_functions
 from typing import List, Dict, Any, Optional
 import PyPDF2
 from pathlib import Path
+import os
 
 from app.utils.config import config
 from app.utils.logger import logger
@@ -21,11 +22,12 @@ class PolicyVectorStore:
             settings=Settings(anonymized_telemetry=False)
         )
         
-        # ✅ Use ChromaDB's built-in sentence-transformers embedding function
-        self.embedding_function = embedding_functions.SentenceTransformerEmbeddingFunction(
-            model_name=config.embedding_model  # "all-MiniLM-L6-v2"
+        # ✅ Use OpenAI embedding function
+        self.embedding_function = embedding_functions.OpenAIEmbeddingFunction(
+            api_key=config.openai_api_key,
+            model_name=config.embedding_model  # "text-embedding-3-small"
         )
-        logger.info(f"Using embedding model: {config.embedding_model}")
+        logger.info(f"Using OpenAI embedding model: {config.embedding_model}")
         
         # Get or create collection with embedding function
         self.collection = self.client.get_or_create_collection(

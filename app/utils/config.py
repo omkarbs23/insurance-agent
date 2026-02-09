@@ -35,7 +35,7 @@ class Config:
     
     @property
     def embedding_model(self) -> str:
-        return os.getenv("EMBEDDING_MODEL", "all-MiniLM-L6-v2")
+        return os.getenv("EMBEDDING_MODEL", "text-embedding-3-small")
     
     # ChromaDB Configuration
     @property

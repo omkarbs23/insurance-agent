@@ -7,7 +7,6 @@ langgraph==1.0.4
 
 # Vector Store & Embeddings
 chromadb==1.4.0
-sentence-transformers==2.3.1
 
 # PDF Processing
 PyPDF2==3.0.1
