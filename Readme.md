@@ -25,3 +25,49 @@ An AI-powered insurance claims processing system using **LangGraph**, **RAG**, a
 ```bash
 git clone <your-repo-url>
 cd insurance-claims-agent
+```
+
+2.  **Create a virtual environment** (recommended):
+    ```bash
+    python -m venv virtual_environment
+    
+    # Windows
+    virtual_environment\Scripts\activate
+    
+    # Linux/Mac
+    source virtual_environment/bin/activate
+    ```
+
+3.  **Install dependencies**:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4.  **Configure Environment Variables**:
+    *   Find the `.env` file in the project root.
+    *   Add your OpenAI API Key:
+        ```env
+        OPENAI_API_KEY=sk-your-openai-api-key-here
+        ```
+    *   (Optional) If you are using a non-standard OpenAI compatible endpoint (like Groq, OpenRouter, etc.), add:
+        ```env
+        OPENAI_BASE_URL=https://api.your-provider.com/v1
+        ```
+
+## Running the Application
+
+1.  **Start the Flask server**:
+    ```bash
+    streamlit run app/main.py
+    ```
+
+2.  **Access the Web Interface**:
+    *   Open your web browser and go to: `http://localhost:8501`
+
+
+
+## Usage
+
+1.  Enter your insurance claim details manually or upload the claim details in the JSON format
+2.  Click **"Process Claim"**, to check if the claim is to be Approved or Rejected.
+3.  Monitor the **Logs** of the agent.
